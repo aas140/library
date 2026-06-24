@@ -1,0 +1,15 @@
+
+label{
+    display: block;
+}
+
+.close{
+    margin-left: 100%;
+    background-color: red;
+    color: white;
+    
+}
+
+dialog{
+    padding: 26px;
+}
