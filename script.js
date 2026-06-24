@@ -29,6 +29,31 @@ function display(){
     list.innerHTML = "";
     lib.forEach((book) =>{
         // create a card and add to DOM
+        const item = document.createElement("li");
+
+        const title = document.createElement("h3");
+        title.innerText = book.title;
+        
+        const auth = document.createElement("p");
+        auth.innerText = `By ${book.author}`;
+
+        const pages = document.createElement("p");
+        pages.innerText = `Pages ${book.pages}`;
+
+        const readCheckbox = document.createElement("input");
+        readCheckbox.type = "checkbox";
+        readCheckbox.checked = book.read;
+        const label = document.createElement("label");
+        label.textContent = "Read";
+
+        item.appendChild(title);
+        item.appendChild(auth);
+        item.appendChild(pages);
+        item.appendChild(label);
+        item.appendChild(readCheckbox);
+        list.appendChild(item);
+        console.log(list);
+        
 
     })
 }
@@ -47,10 +72,11 @@ dataform.addEventListener('submit', (e) =>{
 
     addBookToLib(title, author, pages, read);
 
-    console.log(lib);
+    display();
     
     dataform.reset();
     mydialog.close();
 })
 
+display();
 
