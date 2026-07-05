@@ -31,16 +31,19 @@ function display(){
         // create a card and add to DOM
         const item = document.createElement("li");
 
-        const title = document.createElement("h3");
+        const title = document.createElement("h1");
         title.innerText = book.title;
         
         const auth = document.createElement("p");
-        auth.innerText = `By ${book.author}`;
+        auth.innerText = `By: ${book.author}`;
 
         const pages = document.createElement("p");
         pages.innerText = `Pages ${book.pages}`;
 
+        const container = document.createElement("div");
+        container.className = "read-checkbox";
         const readCheckbox = document.createElement("input");
+        readCheckbox.className = "card-read-checkbox";
         readCheckbox.type = "checkbox";
         readCheckbox.checked = book.read;
         const label = document.createElement("label");
@@ -49,8 +52,9 @@ function display(){
         item.appendChild(title);
         item.appendChild(auth);
         item.appendChild(pages);
-        item.appendChild(label);
-        item.appendChild(readCheckbox);
+        container.appendChild(label);
+        container.appendChild(readCheckbox);
+        item.appendChild(container);
         list.appendChild(item);
         console.log(list);
         
